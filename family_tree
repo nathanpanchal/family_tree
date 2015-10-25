@@ -1,23 +1,32 @@
-root = {"name": "Bob", "hair": "Brown", "children": []}
+root = {"name": "Bob", "hair": "Brown", "children": ["John", "Guys"]}
+def print_children(person):
+    if person["children"]:
+        print("Children: ", person["children"])
+    else:
+        print("Children: ")
+
 def display_person(person):
-    print(person["name"])
-    print(person["hair"])
-    # if person["children"].length != 0:
-    #     print(person["children"])
-    # else:
-    #     print("children: ")
+    print("Name: ", person["name"])
+    print("Hair: ", person["hair"])
+    print_children(person)
 
 def ask_for_child():
     child_name = input("Please enter the child's name (or 'return' or 'exit'... ")
     return child_name
 
-# if(child_name = 'return'
 display_person(root)
 current_person = root
+child_name = ask_for_child()
 if child_name == "exit":
+    print("exiting")
+    quit()
+    print("this should not display")
 #     exit the program
 elif child_name == "return":
+    print("returning")
+    display_person(current_person)
 #     print the previous person and ask for child name
-else
-    # add child to the list of children in the current_person
+else:
+    print("anything else")
 
+    # add child to the list of children in the current_person
