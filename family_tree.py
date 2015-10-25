@@ -8,13 +8,11 @@ def print_children(person):
 def display_person(person):
     print("Name: ", person["name"])
     print("Hair: ", person["hair"])
-    print_children(person)
 
 def ask_for_child():
     child_name = input("Please enter the child's name (or 'return' or 'exit'... ")
     return child_name
 
-display_person(root)
 current_person = root
 child_name = ask_for_child()
 if child_name == "exit":
@@ -27,6 +25,10 @@ elif child_name == "return":
     display_person(current_person)
 #     print the previous person and ask for child name
 else:
-    print("anything else")
+    name = child_name
+    hair = input("Hair color?...")
+    new_child = {"name": name, "hair": hair}
+    current_person["children"].append(new_child)
+    display_person(current_person)
+    
 
-    # add child to the list of children in the current_person
