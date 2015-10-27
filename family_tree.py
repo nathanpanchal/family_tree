@@ -1,30 +1,31 @@
-root = {"name": "bob", "hair": "brown", "children": [{"name": "Jane"}, {"name": "David"}]}
+root = {"name": "bob", "hair": "brown", "children": []}
 
-# makes sure that if the list of children is blank the correct string is displayed
+# Makes sure that if the list of children is blank the correct string is displayed
 def print_children(person):
     if person["children"]:
         for child in person["children"]:
-            print(" " + child["name"])
+            print(" " + child["name"].capitalize())
     else:
         print("Children: ")
 
-def check_child_exists(array, child_name):
-    for child in array:
-        if child["name"] == child_name:
-            return True
-
-def display_person(person):
-    print("Name: ", person["name"])
-    print("Hair color: ", person["hair"])
-    print_children(person)
-
-def prompt():
-    name = input('Enter a child\'s name, or \"return\", or \"exit\":')
-    return name
-
-current_person = root
-display_person(current_person)
-prompt()
-while True
-    display_person(current_person)
-    choice = prompt
+current_node = root
+while True:
+    print("Name: ", current_node["name"].capitalize())
+    print("Hair color: ", current_node["hair"].capitalize())
+    print_children(current_node)
+    choice = input('Enter a child\'s name, or \"return\", or \"exit\":').lower()
+    if choice == "exit":
+        break
+    elif choice.lower() == "return":
+        current_node = root
+        continue
+    else:
+        for child in current_node["children"]:
+            if child["name"] == choice:
+                current_node = child
+                break
+        else:
+            hair = input("What is " + choice.capitalize() + "\'s hair color?").lower()
+            new_child = {"name": choice, "hair": hair, "children": []}
+            current_node["children"].append(new_child)
+            current_node = new_child
