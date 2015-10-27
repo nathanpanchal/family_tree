@@ -1,6 +1,3 @@
-root = {"name": "bob", "hair": "brown", "children": []}
-
-# Makes sure that if the list of children is blank the correct string is displayed
 def print_children(person):
     if person["children"]:
         for child in person["children"]:
@@ -8,6 +5,7 @@ def print_children(person):
     else:
         print("Children: ")
 
+root = {"name": "bob", "hair": "brown", "children": []}
 current_node = root
 while True:
     print("Name: ", current_node["name"].capitalize())
@@ -16,7 +14,7 @@ while True:
     choice = input('Enter a child\'s name, or \"return\", or \"exit\":').lower()
     if choice == "exit":
         break
-    elif choice.lower() == "return":
+    elif choice == "return":
         current_node = root
         continue
     else:
