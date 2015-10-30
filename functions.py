@@ -10,14 +10,14 @@ def do_math():
     def numbers():
         numbers.first_num = float(input("First number: "))
         numbers.second_num = float(input("Second number: "))
-    if "add" in operation:
+    if operation.startswith("add"):
         numbers()
         return numbers.first_num + numbers.second_num
-    elif "sub" in operation:
+    elif operation.startswith("sub"):
         numbers()
         return numbers.first_num - numbers.second_num
     # there is an implicit return of "None" if the input does not match the if control flow
 
-
-
-print(do_math())
+def echo(message, times):
+    for i in range(times):
+        print(message)
