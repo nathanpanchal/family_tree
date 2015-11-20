@@ -12,6 +12,7 @@ def do_math():
         numbers.second_num = float(input("Second number: "))
     if operation.startswith("add"):
         numbers()
+        # These return functions are overloaded but it saves a line of code!
         return numbers.first_num + numbers.second_num
     elif operation.startswith("sub"):
         numbers()
@@ -34,4 +35,6 @@ else:
 
 echo("Hello")
 echo("Echo..", 3)
-# echo(3, "bla")
+
+bla = 3
+echo({},{}).format(3,bla)
