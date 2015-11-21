@@ -3,15 +3,20 @@ class Lockbox():
 
     def __init__(self, contents):
         self.contents = contents
+        # The .locked variable is not private. The double underscore
+        # means the variable name is mangled which effectively makes it private.
+        # but a determined programmer can access it.
         self.__locked = True
 
+    # @property turns the "locked" property into a getter method
     @property
     def locked(self):
         if self.__locked:
             return True
         else:
             return False
-
+    # Because I established locked as a property I am able to create a setter
+    # method.
     @locked.setter
     def locked(self, should_lock):
         if should_lock:
